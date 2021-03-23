@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;700&display=swap");
+.loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center !important;
+  -ms-flex-align: center !important;
+  align-items: center !important;
+}
+
+.fa-pulse {
+  color: #daa520;
+}
+
+/*# sourceMappingURL=fallBackSuspense.css.map */

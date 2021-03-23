@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;700&display=swap");
+.filterMenu {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.filterMenu .menuList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 20px 0px;
+}
+a {
+  font-family: 'Raleway',
+  sans-serif !important;
+}
+.filterMenu .menuList li a {
+  color: #fff;
+  font-family: 'Raleway', sans-serif !important;
+  font-size: 20px;
+  border: 1px solid #fff;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.filterMenu .menuList li a:hover {
+  text-decoration: none;
+}
+
+.filterMenu .menuList li a.active {
+  color: #DAA520;
+  border: 1px solid #DAA520;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 600px) {
+  .filterMenu {
+    background-color: rgba(0, 0, 0, 0.5);
+
+  }
+  .filterMenu .menuList {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .filterMenu .menuList li {
+    margin-right: 7px;
+  }
+  .filterMenu .menuList li a {
+    color: #fff;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 12px;
+    border: 1px solid #fff;
+    padding: 5px;
+    border-radius: 3px;
+  }
+  .filterMenu .menuList li a:hover {
+    text-decoration: none;
+  }
+  .filterMenu .menuList li a.active {
+    color: #DAA520;
+    border: 1px solid #DAA520;
+    font-weight: 500;
+  }
+}
+/*# sourceMappingURL=menu.css.map */

@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;700&display=swap");
+.wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.error404 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.error404 h1 {
+  color: #fff;
+  font-weight: 500;
+}
+
+.goBack {
+  font-size: 20px;
+  color: #DAA520;
+  font-weight: 300;
+}
+
+.goBack:hover {
+  text-decoration: none;
+  color: #fff;
+}
+/*# sourceMappingURL=Error404.css.map */

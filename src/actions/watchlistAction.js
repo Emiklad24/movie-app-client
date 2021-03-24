@@ -19,10 +19,8 @@ export const fetchWatchlists = (id) => async (dispatch, getState) => {
         $populate: "userId",
       },
     });
-    console.log(watchlist);
     dispatch({ type: IS_WATCHLIST_SUCCESS, payload: watchlist.data });
   } catch (error) {
-    console.log(error);
     dispatch({ type: IS_WATCHLIST_ERROR });
   }
 };
@@ -32,9 +30,7 @@ export const addWatchlist = (addedWatchlist) => async (dispatch, getState) => {
     let newState = [...getState().watchlists.watchlists, addedWatchlist];
 
     dispatch({ type: IS_NEW_WATCHLIST, payload: newState });
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 };
 export const removeWatchlist = (id) => async (dispatch, getState) => {
   try {

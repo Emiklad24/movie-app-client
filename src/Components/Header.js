@@ -13,12 +13,12 @@ export class Header extends Component {
         <div className="container">
           <nav className="nav">
             <div className="logo">
-              <Link className="navbar-brand" to="/">
+              <Link className="navbar-brand uk-animation-fade" to="/">
                 Movie App
               </Link>
             </div>
             <div className="navbar-items">
-              <Link className="item active" to="/">
+              <Link className="item active  uk-animation-fade" to="/">
                 <span className="nav-icon">
                   <i className="fa fa-home"></i>
                 </span>
@@ -26,20 +26,24 @@ export class Header extends Component {
               </Link>
               {isAuthenticated ? (
                 <>
-                  <Link className="item" to="/watchlist">
+                  <Link className="item  uk-animation-fade" to="/watchlist">
                     <span className="nav-icon">
                       <i className="fa fa-bookmark"></i>
                     </span>
                     <span className="menu-text">Watchlist</span>
                   </Link>
-                  <Link className="item" to="/rated">
+                  <Link className="item  uk-animation-fade" to="/rated">
                     <span className="nav-icon">
                       <i className="fa fa-star"></i>
                     </span>
                     <span className="menu-text">Rated Movies</span>
                   </Link>
 
-                  <Link className="item" to="#" onClick={() => logout()}>
+                  <Link
+                    className="item  uk-animation-fade"
+                    to="#"
+                    onClick={() => logout()}
+                  >
                     <span className="nav-icon">
                       <i className="fa fa-sign-out"></i>
                     </span>
@@ -48,7 +52,7 @@ export class Header extends Component {
                 </>
               ) : (
                 <>
-                  <Link className="item" to="/login">
+                  <Link className="item  uk-animation-fade" to="/login">
                     <span className="nav-icon">
                       <i className="fa fa-user"></i>
                     </span>

@@ -1,41 +1,52 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React from "react";
 import MovieCard from "./MovieCard";
 import FetchMore from "./FetchMore";
-import { fetchMoreNowPlayingMovies } from "../actions/nowPlayingMoviesAction";
+import { NowPlayingMoviesStore } from "../store/nowPlayingMovies.store";
+import { useQuery } from "react-query";
+import { fetchNowPlayingMoviesKey } from "../util/appCacheKeys";
+import { fetchNowPlaying } from "../services/fetchNowPlayingMovies.service";
 
-class NowPlaying extends Component {
-  render() {
-    const { movies, fetchMoreNowPlayingMovies } = this.props;
+function NowPlaying() {
+  const [runQuery, setRunQuery] = React.useState(false);
+  const nowPlayingMovies = NowPlayingMoviesStore(
+    (state) => state?.nowPlayingMovies
+  );
+  const updateCurrentPage = NowPlayingMoviesStore(
+    (state) => state?.updateCurrentPage
+  );
+  const updateNowPlayingMovies = NowPlayingMoviesStore(
+    (state) => state?.updateNowPlayingMovies
+  );
+  const currentPage = NowPlayingMoviesStore((state) => state?.currentPage);
+  const { isLoading } = useQuery(
+    [fetchNowPlayingMoviesKey, currentPage],
+    fetchNowPlaying,
+    {
+      onSuccess: (result) => {
+        setRunQuery(false);
+        updateCurrentPage(result, currentPage + 1);
+        updateNowPlayingMovies(result);
+      },
+      enabled: runQuery,
+    }
+  );
 
-    return (
-      <>
-        {movies.map((movie) => {
-          if (movie.id === 582885) {
-            return null;
-          }
-          return (
-            <MovieCard
-              movie={movie}
-              key={movie.id}
-              canDelete={false}
-              onWatchlist={false}
-              forceUpdate={true}
-            />
-          );
-        })}
-        <FetchMore fetchMore={fetchMoreNowPlayingMovies} />
-      </>
-    );
-  }
+  return (
+    <>
+      {nowPlayingMovies.map((movie) => {
+        return (
+          <MovieCard
+            movie={movie}
+            key={movie.id}
+            canDelete={false}
+            onWatchlist={false}
+            forceUpdate={true}
+          />
+        );
+      })}
+      <FetchMore fetchMore={setRunQuery} isLoading={isLoading} />
+    </>
+  );
 }
 
-const mapStateToProps = (state) => ({
-  isInitialLoading: state.nowPlayingMovies.isInitialLoading,
-  error: state.nowPlayingMovies.error,
-  movies: state.nowPlayingMovies.movies,
-});
-
-export default connect(mapStateToProps, { fetchMoreNowPlayingMovies })(
-  NowPlaying
-);
+export default NowPlaying;

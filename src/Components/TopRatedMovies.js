@@ -1,40 +1,53 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React from "react";
+import { useQuery } from "react-query";
+import { fetchTopRatedMovies } from "../services/fetchTopRatedMovies.service";
+import { TopRatedMoviesStore } from "../store/topRatedMovies.store";
+import { fetchTopRatedMoviesKey } from "../util/appCacheKeys";
 import FetchMore from "./FetchMore";
-import { fetchMoreTopRatedMovies } from "../actions/topRatedMoviesAction";
-
 import MovieCard from "./MovieCard";
 
-class TopRated extends Component {
-  render() {
-    const { movies, fetchMoreTopRatedMovies } = this.props;
+function TopRated() {
+  const [runQuery, setRunQuery] = React.useState(false);
+  const topRatedMovies = TopRatedMoviesStore((state) => state?.topRatedMovies);
+  const updateCurrentPage = TopRatedMoviesStore(
+    (state) => state?.updateCurrentPage
+  );
+  const updateTopRatedMovies = TopRatedMoviesStore(
+    (state) => state?.updateTopRatedMovies
+  );
+  const currentPage = TopRatedMoviesStore((state) => state?.currentPage);
+  const { isLoading } = useQuery(
+    [fetchTopRatedMoviesKey, currentPage],
+    fetchTopRatedMovies,
+    {
+      onSuccess: (result) => {
+        setRunQuery(false);
+        updateCurrentPage(result, currentPage + 1);
+        updateTopRatedMovies(result);
+      },
+      enabled: runQuery,
+    }
+  );
 
-    return (
-      <>
-        {movies.map((movie) => {
-          if (movie.id === 582885) {
-            return null;
-          }
-          return (
-            <MovieCard
-              movie={movie}
-              key={movie.id}
-              canDelete={false}
-              onWatchlist={false}
-              forceUpdate={true}
-            />
-          );
-        })}
-        <FetchMore fetchMore={fetchMoreTopRatedMovies} />
-      </>
-    );
-  }
+  return (
+    <>
+      {topRatedMovies.map((movie) => {
+        if (movie.id === 582885) {
+          return null;
+        }
+        return (
+          <MovieCard
+            movie={movie}
+            key={movie.id}
+            canDelete={false}
+            onWatchlist={false}
+            forceUpdate={true}
+          />
+        );
+      })}
+      <FetchMore fetchMore={setRunQuery} isLoading={isLoading} />
+    </>
+  );
 }
 
-const mapStateToProps = (state) => ({
-  isInitialLoading: state.topRatedMovies.isInitialLoading,
-  error: state.topRatedMovies.error,
-  movies: state.topRatedMovies.movies,
-});
-
-export default connect(mapStateToProps, { fetchMoreTopRatedMovies })(TopRated);
+export default TopRated;

@@ -47,16 +47,16 @@ export class Header extends Component {
                     <span className="nav-icon">
                       <i className="fa fa-sign-out"></i>
                     </span>
-                    <span className="menu-text">Log Out</span>
+                    <span className="menu-text">Leave</span>
                   </Link>
                 </>
               ) : (
                 <>
-                  <Link className="item  uk-animation-fade" to="/login">
+                  <Link className="item  uk-animation-fade" to="/join">
                     <span className="nav-icon">
                       <i className="fa fa-user"></i>
                     </span>
-                    <span className="menu-text">Login</span>
+                    <span className="menu-text">Join</span>
                   </Link>
                 </>
               )}

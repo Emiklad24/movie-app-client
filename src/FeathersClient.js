@@ -3,7 +3,8 @@ import feathers from "@feathersjs/feathers";
 import socketio from "@feathersjs/socketio-client";
 import authentication from "@feathersjs/authentication-client";
 
-export const socketURL = "https://movie-app-serve.herokuapp.com";
+export const socketURL = "http://192.168.43.112:3030";
+// export const socketURL = "https://movie-app-serve.herokuapp.com";
 
 const client = feathers();
 
@@ -16,7 +17,6 @@ client.configure(socketio(socket));
 client.configure(
   authentication({
     storage: window.localStorage,
-    storageKey: "auth",
   })
 );
 

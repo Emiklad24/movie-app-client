@@ -10,7 +10,6 @@ export const loadUser = async () => {
     const reAuth = await client.reAuthenticate();
     return reAuth;
   } catch (error) {
-    console.log(error);
-    throw new Error("Failed");
+    throw new Error(error);
   }
 };

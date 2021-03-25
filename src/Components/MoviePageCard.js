@@ -185,7 +185,6 @@ class MoviePageCard extends Component {
               className="movie-img"
               title={currentMovieName}
               width={!currentMoviePosterPath ? "300" : null}
-              loading="lazy"
             />
 
             <div className="movie-info d-flex flex-column justify-content-between p-3 align-items-start">
@@ -300,7 +299,6 @@ class MoviePageCard extends Component {
                         className="movie-img"
                         title={company.name}
                         width={!company.logo_path ? 200 : 100}
-                        loading="lazy"
                       />
                     </div>
                     <div className="mt-1">

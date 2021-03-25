@@ -87,12 +87,12 @@ class MovieCard extends Component {
     if (!isAuthenticated) {
       swal({
         title: ` Sorry 😔 😔 😔`,
-        text: `You have to log in to add "${movieWatchlist}" to your watchlist`,
-        buttons: ["OK", "Login"],
+        text: `You have to join to add "${movieWatchlist}" to your watchlist`,
+        buttons: ["OK", "Join"],
         dangerMode: true,
       }).then((willLogin) => {
         if (willLogin) {
-          window.location.href = "/login";
+          window.location.href = "/join";
         }
       });
       return;

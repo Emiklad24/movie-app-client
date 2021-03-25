@@ -1,4 +1,5 @@
 import { useQuery } from "react-query";
+import { loadUser } from "../../actions/authAction";
 import { useLoadUserInfo } from "../../hooks/useLoadUserInfo";
 import { fetchNowPlaying } from "../../services/fetchNowPlayingMovies.service";
 import { fetchPopularMovies } from "../../services/fetchPopularMovies.service";
@@ -14,7 +15,6 @@ import {
   fetchUpcomingMoviesKey,
   fetchTopRatedMoviesKey,
 } from "../../util/appCacheKeys";
-
 export default function GlobalFetches() {
   const popularMovies = PopularMoviesStore((state) => state?.popularMovies);
   const currentPage = PopularMoviesStore((state) => state?.currentPage);
@@ -61,6 +61,8 @@ export default function GlobalFetches() {
   const currentPageTopRated = TopRatedMoviesStore(
     (state) => state?.currentPage
   );
+
+  loadUser();
 
   useQuery(fetchPopularMoviesKey, fetchPopularMovies, {
     enabled: currentPage === 1 && popularMovies?.length === 0 ? true : false,

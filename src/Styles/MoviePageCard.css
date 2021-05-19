@@ -15,56 +15,59 @@
     opacity: 1;
   }
 }
+a {
+  text-decoration: none !important;
+}
 
 @-webkit-keyframes animateScale {
   0% {
     -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    transform: scale(1.1);
   }
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
 }
 
 @keyframes animateScale {
   0% {
     -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    transform: scale(1.1);
   }
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
 }
 
 @-webkit-keyframes pulse {
   from {
     -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
   50% {
     -webkit-transform: scale3d(1.05, 1.05, 1.05);
-            transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
   }
   to {
     -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }
 
 @keyframes pulse {
   from {
     -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
   50% {
     -webkit-transform: scale3d(1.05, 1.05, 1.05);
-            transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
   }
   to {
     -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }
 
@@ -105,22 +108,23 @@
   position: relative;
   display: -ms-grid;
   display: grid;
-  grid-template: "image info"
- "image stat";
+  grid-template:
+    "image info"
+    "image stat";
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
+  -ms-flex-pack: start;
+  justify-content: start;
   -ms-grid-columns: 300px 1fr;
-      grid-template-columns: 300px 1fr;
+  grid-template-columns: 300px 1fr;
   position: relative;
   margin-bottom: 50px;
 }
 
 .movie .movie-title {
-  color: #DAA520;
+  color: #daa520;
   line-height: 25px;
   margin-bottom: 10px !important;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: bold;
 }
 
@@ -140,8 +144,8 @@
   color: #adb5bd;
   grid-area: stat;
   -ms-flex-item-align: end;
-      -ms-grid-row-align: end;
-      align-self: end;
+  -ms-grid-row-align: end;
+  align-self: end;
 }
 
 .movie .movie-tagline {
@@ -150,14 +154,13 @@
   margin-bottom: 15px;
   font-size: 1.2em;
   color: #fff;
-  font-family: 'Raleway',
-  sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: bold;
 }
 
 .movie .modal {
   -webkit-transform: translateY(-100vh) !important;
-          transform: translateY(-100vh) !important;
+  transform: translateY(-100vh) !important;
   opacity: 0 !important;
 }
 
@@ -168,42 +171,42 @@
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  border: 2px solid #DAA520;
+  border: 2px solid #daa520;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 2px;
   -webkit-box-shadow: 0 2px 4px 1px rgba(218, 165, 32, 0.4);
-          box-shadow: 0 2px 4px 1px rgba(218, 165, 32, 0.4);
+  box-shadow: 0 2px 4px 1px rgba(218, 165, 32, 0.4);
 }
 
 .movie .btn-secondary {
-  background-color: #DAA520 !important;
-  border: 2px solid #DAA520 !important;
-  outline-color: #DAA520 !important;
+  background-color: #daa520 !important;
+  border: 2px solid #daa520 !important;
+  outline-color: #daa520 !important;
   margin-bottom: 7px;
 }
 
 .movie .btn-secondary:focus {
-  outline-color: #DAA520 !important;
+  outline-color: #daa520 !important;
 }
 
 .align-items-center {
   -webkit-box-align: center !important;
-      -ms-flex-align: center !important;
-          align-items: center !important;
+  -ms-flex-align: center !important;
+  align-items: center !important;
 }
 
 .justify-content-between {
   -webkit-box-pack: justify !important;
-      -ms-flex-pack: justify !important;
-          justify-content: space-between !important;
+  -ms-flex-pack: justify !important;
+  justify-content: space-between !important;
 }
 
 .d-flex {
@@ -228,9 +231,10 @@
   .movie {
     display: -ms-grid;
     display: grid;
-    grid-template: "image"
- "info"
- "stat";
+    grid-template:
+      "image"
+      "info"
+      "stat";
     justify-items: center;
   }
 }
@@ -257,9 +261,8 @@
   }
 }
 
-.prod-comp{
-  font-family: 'Raleway',
-  sans-serif;
+.prod-comp {
+  font-family: "Raleway", sans-serif;
   font-weight: bold;
 }
 /*# sourceMappingURL=movieInfoCard.css.map */

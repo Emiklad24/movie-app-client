@@ -5,7 +5,7 @@ import { PopularMoviesStore } from "../store/popularMovies.store";
 import { useQuery } from "react-query";
 import { fetchPopularMovies } from "../services/fetchPopularMovies.service";
 import { fetchPopularMoviesKey } from "../util/appCacheKeys";
-
+import { queryClient } from "../util/misc";
 function PopularMovies() {
   const [runQuery, setRunQuery] = React.useState(false);
   const popularMovies = PopularMoviesStore((state) => state?.popularMovies);
@@ -28,6 +28,12 @@ function PopularMovies() {
       enabled: runQuery,
     }
   );
+  // const prefetchMore = () => {
+  //   queryClient.prefetchQuery(
+  //     [fetchPopularMoviesKey, currentPage],
+  //     fetchPopularMovies
+  //   );
+  // };
 
   return (
     <>
@@ -46,7 +52,11 @@ function PopularMovies() {
             );
           })
         : null}
-      <FetchMore fetchMore={setRunQuery} isLoading={isLoading} />
+      <FetchMore
+        fetchMore={setRunQuery}
+        isLoading={isLoading}
+        // prefetchMore={prefetchMore}
+      />
     </>
   );
 }

@@ -9,36 +9,36 @@
   display: flex;
   width: 100%;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   padding: 20px 0px;
 }
 a {
-  font-family: 'Raleway',
-  sans-serif !important;
+  font-family: "Raleway", sans-serif !important;
 }
-.filterMenu .menuList li a {
+.filterMenu .menuList li div {
   color: #fff;
-  font-family: 'Raleway', sans-serif !important;
+  font-family: "Raleway", sans-serif !important;
   font-size: 20px;
   border: 1px solid #fff;
   padding: 10px;
   border-radius: 3px;
 }
 
-.filterMenu .menuList li a:hover {
+.filterMenu .menuList li div:hover {
   text-decoration: none;
+  cursor: pointer;
 }
 
-.filterMenu .menuList li a.active {
-  color: #DAA520;
-  border: 1px solid #DAA520;
+.filterMenu .menuList li div.active {
+  color: #daa520;
+  border: 1px solid #daa520;
   font-weight: 500;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {
   .filterMenu {
     background-color: rgba(0, 0, 0, 0.5);
-
   }
   .filterMenu .menuList {
     display: -webkit-box;
@@ -46,29 +46,30 @@ a {
     display: flex;
     width: 100%;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
   .filterMenu .menuList li {
     margin-right: 7px;
   }
-  .filterMenu .menuList li a {
+  .filterMenu .menuList li div {
     color: #fff;
     font-family: "IBM Plex Sans", sans-serif;
     font-size: 12px;
     border: 1px solid #fff;
     padding: 5px;
     border-radius: 3px;
+    cursor: pointer;
   }
-  .filterMenu .menuList li a:hover {
+  .filterMenu .menuList li div:hover {
     text-decoration: none;
   }
-  .filterMenu .menuList li a.active {
-    color: #DAA520;
-    border: 1px solid #DAA520;
+  .filterMenu .menuList li div.active {
+    color: #daa520;
+    border: 1px solid #daa520;
     font-weight: 500;
   }
 }

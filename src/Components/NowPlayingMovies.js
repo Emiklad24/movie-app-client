@@ -5,6 +5,7 @@ import { NowPlayingMoviesStore } from "../store/nowPlayingMovies.store";
 import { useQuery } from "react-query";
 import { fetchNowPlayingMoviesKey } from "../util/appCacheKeys";
 import { fetchNowPlaying } from "../services/fetchNowPlayingMovies.service";
+import { queryClient } from "../util/misc";
 
 function NowPlaying() {
   const [runQuery, setRunQuery] = React.useState(false);
@@ -23,6 +24,7 @@ function NowPlaying() {
     fetchNowPlaying,
     {
       onSuccess: (result) => {
+        console.log(result);
         setRunQuery(false);
         updateCurrentPage(result, currentPage + 1);
         updateNowPlayingMovies(result);
@@ -30,6 +32,13 @@ function NowPlaying() {
       enabled: runQuery,
     }
   );
+
+  // const prefetchMore = () => {
+  //   queryClient.prefetchQuery(
+  //     [fetchNowPlayingMoviesKey, currentPage],
+  //     fetchNowPlaying
+  //   );
+  // };
 
   return (
     <>
@@ -44,7 +53,11 @@ function NowPlaying() {
           />
         );
       })}
-      <FetchMore fetchMore={setRunQuery} isLoading={isLoading} />
+      <FetchMore
+        fetchMore={setRunQuery}
+        isLoading={isLoading}
+        // prefetchMore={prefetchMore}
+      />
     </>
   );
 }

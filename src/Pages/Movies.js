@@ -1,41 +1,42 @@
-import React, { Component } from 'react';
-import Header from '../Components/Header';
-import Hero from '../Components/Hero';
-import MoviesMenu from '../Components/MoviesMenu'
-import Search from '../Components/Search';
-import { connect } from 'react-redux';
-import { fetchWatchlists } from '../actions/watchlistAction'
-import { fetchRatedMovies } from '../actions/ratedMoviesAction'
-
+import React, { Component } from "react";
+import Hero from "../Components/Hero";
+import MoviesMenu from "../Components/MoviesMenu";
+import Search from "../Components/Search";
+import { connect } from "react-redux";
+import { fetchWatchlists } from "../actions/watchlistAction";
+import { fetchRatedMovies } from "../actions/ratedMoviesAction";
 
 class Movies extends Component {
-
-    componentDidMount = () => {
-        const { isAuthenticated, userData, fetchWatchlists, fetchRatedMovies } = this.props;
-        if (isAuthenticated) {
-            fetchWatchlists(userData._id);
-            fetchRatedMovies(userData._id)
-        }
+  componentDidMount = () => {
+    const {
+      isAuthenticated,
+      userData,
+      fetchWatchlists,
+      fetchRatedMovies,
+    } = this.props;
+    if (isAuthenticated) {
+      fetchWatchlists(userData._id);
+      fetchRatedMovies(userData._id);
     }
+  };
 
-
-    render() {
-        return (
-            <>
-                <Header />
-                <Hero />
-                <MoviesMenu />
-                <Search />
-            </>
-        )
-    }
+  render() {
+    return (
+      <>
+        <Hero />
+        <MoviesMenu />
+        <Search />
+      </>
+    );
+  }
 }
 
 const mapStateToProps = (state) => ({
-    isAuthenticated: state.auth.isAuthenticated,
-    isAuthLoading: state.auth.isLoading,
-    userData: state.auth.user,
+  isAuthenticated: state.auth.isAuthenticated,
+  isAuthLoading: state.auth.isLoading,
+  userData: state.auth.user,
 });
 
-export default connect(mapStateToProps, { fetchWatchlists, fetchRatedMovies })(Movies)
-
+export default connect(mapStateToProps, { fetchWatchlists, fetchRatedMovies })(
+  Movies
+);

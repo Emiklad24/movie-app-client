@@ -5,6 +5,7 @@ import { useQuery } from "react-query";
 import { fetchUpcomingMoviesKey } from "../util/appCacheKeys";
 import { fetchUpcomingMovies } from "../services/fetchUpcomingMovies.service";
 import { upcomingMoviesStore } from "../store/upcomingMovies.store";
+import { queryClient } from "../util/misc";
 
 function UpcomingMovies() {
   const [runQuery, setRunQuery] = React.useState(false);
@@ -28,7 +29,12 @@ function UpcomingMovies() {
       enabled: runQuery,
     }
   );
-
+  // const prefetchMore = () => {
+  //   queryClient.prefetchQuery(
+  //     [fetchUpcomingMoviesKey, currentPage],
+  //     fetchUpcomingMovies
+  //   );
+  // };
   return (
     <>
       {upcomingMovies.map((movie) => {
@@ -42,7 +48,11 @@ function UpcomingMovies() {
           />
         );
       })}
-      <FetchMore fetchMore={setRunQuery} isLoading={isLoading} />
+      <FetchMore
+        fetchMore={setRunQuery}
+        isLoading={isLoading}
+        // prefetchMore={prefetchMore}
+      />
     </>
   );
 }

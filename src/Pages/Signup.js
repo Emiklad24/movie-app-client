@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../Styles/Signup.css";
-import Header from "../Components/Header";
 import { Link, Redirect } from "react-router-dom";
 import swal from "sweetalert";
 import { connect } from "react-redux";
@@ -71,7 +70,6 @@ class Signup extends Component {
 
     return (
       <>
-        <Header />
         <div className="container">
           <div className="form mx-auto my-auto">
             <form>

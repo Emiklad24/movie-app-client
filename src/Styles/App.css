@@ -6,12 +6,12 @@
   list-style: none;
   text-decoration: none;
   outline: none;
-   font-family: 'Raleway',
-   sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 html {
   background-color: black !important;
+  scroll-behavior: smooth;
 }
 body {
   background-image: url("../Assets/Images/bg.jpg");
@@ -272,4 +272,22 @@ body {
     grid-template: "image" "info" "stat";
     justify-items: center;
   }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: none;
+  background-color: #daa520;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: none;
+  background-color: transparent;
+  border-radius: 0px;
+  background-color: var(--light-color);
 }

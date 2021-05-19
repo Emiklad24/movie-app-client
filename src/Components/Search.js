@@ -47,59 +47,62 @@ class Search extends Component {
     this.setState({ searchTerm: movieName });
 
     if (movieName.length > 0 && this.state.movieType !== "people") {
-      try {
-        this.setState({ isLoading: true, error: false });
+      setTimeout(async () => {
+        try {
+          this.setState({ isLoading: true, error: false });
 
-        const movieSearchResults = await axios.get(
-          `https://api.themoviedb.org/3/search/${this.state.movieType}`,
-          {
-            params: {
-              api_key: process.env.REACT_APP_API_KEY,
-              language: "en-US",
-              query: movieName.toLowerCase(),
-              page: this.state.page,
-              include_adult: false,
-            },
-          }
-        );
-        console.log();
+          const movieSearchResults = await axios.get(
+            `https://api.themoviedb.org/3/search/${this.state.movieType}`,
+            {
+              params: {
+                api_key: process.env.REACT_APP_API_KEY,
+                language: "en-US",
+                query: movieName.toLowerCase(),
+                page: this.state.page,
+                include_adult: false,
+              },
+            }
+          );
 
-        this.setState({
-          isLoading: false,
-          error: false,
-          searchResults: movieSearchResults.data.results,
-        });
-        console.log(movieSearchResults.data.results);
-      } catch (error) {
-        console.log(error);
-        this.setState({ isLoading: false, error: true });
-      }
+          this.setState({
+            isLoading: false,
+            error: false,
+            searchResults: movieSearchResults.data.results,
+          });
+          console.log(movieSearchResults.data.results);
+        } catch (error) {
+          console.log(error);
+          this.setState({ isLoading: false, error: true });
+        }
+      }, 500);
     } else if (movieName.length > 0 && this.state.movieType === "people") {
-      try {
-        this.setState({ isLoading: true, error: false });
+      setTimeout(async () => {
+        try {
+          this.setState({ isLoading: true, error: false });
 
-        const movieSearchResults = await axios.get(
-          `https://api.themoviedb.org/3/search/person`,
-          {
-            params: {
-              api_key: process.env.REACT_APP_API_KEY,
-              language: "en-US",
-              query: movieName.toLowerCase(),
-              page: this.state.page,
-              include_adult: false,
-            },
-          }
-        );
+          const movieSearchResults = await axios.get(
+            `https://api.themoviedb.org/3/search/person`,
+            {
+              params: {
+                api_key: process.env.REACT_APP_API_KEY,
+                language: "en-US",
+                query: movieName.toLowerCase(),
+                page: this.state.page,
+                include_adult: false,
+              },
+            }
+          );
 
-        this.setState({
-          isLoading: false,
-          error: false,
-          searchResults: movieSearchResults.data.results,
-        });
-      } catch (error) {
-        console.log(error);
-        this.setState({ isLoading: false, error: true });
-      }
+          this.setState({
+            isLoading: false,
+            error: false,
+            searchResults: movieSearchResults.data.results,
+          });
+        } catch (error) {
+          console.log(error);
+          this.setState({ isLoading: false, error: true });
+        }
+      }, 500);
     } else {
       this.setState({ searchResults: null });
     }

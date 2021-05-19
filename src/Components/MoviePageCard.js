@@ -158,7 +158,7 @@ class MoviePageCard extends Component {
     const { isLoading } = this.state;
     const currentMovieName =
       movie.title || movie.original_name || movie.original_title;
-    const currentMovieTagline = movie.tagline || "No tagline";
+    const currentMovieTagline = movie.tagline || "";
     const currentMoviePosterPath = movie.poster_path || movie.backdrop_path;
 
     return (
@@ -182,12 +182,12 @@ class MoviePageCard extends Component {
                   : noImage
               }
               alt={currentMovieName}
-              className="movie-img"
+              className="movie-img uk-animation-fade"
               title={currentMovieName}
               width={!currentMoviePosterPath ? "300" : null}
             />
 
-            <div className="movie-info d-flex flex-column justify-content-between p-3 align-items-start">
+            <div className="movie-info d-flex flex-column justify-content-between p-3 align-items-start uk-animation-fade">
               <a
                 href={movie.homepage ? movie.homepage : null}
                 target="_blank"
@@ -204,13 +204,13 @@ class MoviePageCard extends Component {
                 <button
                   type="button"
                   id="watchlist-btn"
-                  className="movie-like mr-2 undefined btn btn-secondary"
+                  className="movie-like mr-2 undefined btn btn-secondary uk-animation-fade"
                   title="Add to my watchlist"
                   onClick={() => this.addMovieToWatchList(movie)}
                 >
                   {isLoading ? (
                     <i
-                      className="fa fa-spinner fa-spin fa-1x fa-fw mr-1"
+                      className="fa fa-spinner fa-spin fa-1x fa-fw mr-1 uk-animation-fade"
                       aria-hidden="true"
                     ></i>
                   ) : (
@@ -230,7 +230,7 @@ class MoviePageCard extends Component {
                   starSpacing="5px"
                 />
               </div>
-              <p className="movie-overview">
+              <p className="movie-overview uk-animation-fade">
                 {movie.overview || "No Overview for this movie"}
               </p>
               {movie.genres &&

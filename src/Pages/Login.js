@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../Styles/Login.css";
-import Header from "../Components/Header";
 import { Link, Redirect } from "react-router-dom";
 import Search from "../Components/Search";
 import { socketURL } from "../FeathersClient";
@@ -14,7 +13,6 @@ function Login() {
 
   return (
     <>
-      <Header />
       <div className="container">
         <div className="form mx-auto my-auto">
           <form>

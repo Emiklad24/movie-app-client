@@ -8,7 +8,21 @@ import client from "../FeathersClient";
 import { toast } from "react-toastify";
 import { addWatchlist, removeWatchlist } from "../actions/watchlistAction";
 import noImage from "../Assets/Images/noimage.png";
-
+import { queryClient } from "../util/misc";
+import {
+  fetchSingleMovieDetailKey,
+  fetchSingleMovieTrailersKey,
+  fetchSingleMovieCastKey,
+  fetchRecommendedMoviesKey,
+  fetchSimilarMoviesKey,
+  fetchMovieGalleryKey,
+} from "../util/appCacheKeys";
+import { fetchSingleSimilarMovies } from "../services/fetchSingleSimilarMovies.service";
+import { fetchSingleRecommendedMovies } from "../services/fetchSingleRecommendedMovies.service";
+import { fetchSingleMovieGallery } from "../services/fetchSingleMovieGallery.service";
+import { fetchSingleMovieDetail } from "../services/fetchSingleMovieDetail.service";
+import { fetchSingleMovieCast } from "../services/fetchSingleMovieCast.service";
+import { fetchSingleMovieTrailers } from "../services/fetchSingleMovieTrailers.service";
 class MovieCard extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +30,52 @@ class MovieCard extends Component {
       isLoading: false,
     };
   }
+
+  prefetchAllRelatedQueries = (currentMovieId) => {
+    const staleTime = 1000 * 60 * 60 * 24;
+    queryClient.prefetchQuery(
+      [fetchSingleMovieDetailKey, currentMovieId],
+      fetchSingleMovieDetail,
+      {
+        staleTime,
+      }
+    );
+    queryClient.prefetchQuery(
+      [fetchSingleMovieTrailersKey, currentMovieId],
+      fetchSingleMovieTrailers,
+      {
+        staleTime,
+      }
+    );
+    queryClient.prefetchQuery(
+      [fetchSingleMovieCastKey, currentMovieId],
+      fetchSingleMovieCast,
+      {
+        staleTime,
+      }
+    );
+    queryClient.prefetchQuery(
+      [fetchRecommendedMoviesKey, currentMovieId],
+      fetchSingleRecommendedMovies,
+      {
+        staleTime,
+      }
+    );
+    queryClient.prefetchQuery(
+      [fetchSimilarMoviesKey, currentMovieId],
+      fetchSingleSimilarMovies,
+      {
+        staleTime,
+      }
+    );
+    queryClient.prefetchQuery(
+      [fetchMovieGalleryKey, currentMovieId],
+      fetchSingleMovieGallery,
+      {
+        staleTime,
+      }
+    );
+  };
 
   getGenre = (movie) => {
     let genre = "";
@@ -164,6 +224,7 @@ class MovieCard extends Component {
       <div
         className="col mt-5 uk-animation-fade-meduim"
         uk-scrollspy="cls: uk-animation-fade; target: .card; delay: 300; repeat: true"
+        onMouseEnter={() => this.prefetchAllRelatedQueries(currentMovieId)}
       >
         <div className="card">
           <Link to={urlPath} onClick={this.someMethod}>
@@ -227,6 +288,7 @@ class MovieCard extends Component {
                 <div>{currentMovieName || "Movie App"}</div>
               </Link>
               <p> {this.getGenre(movie.genre_ids)} </p>
+              <p> {movie?.character && `Character: ${movie?.character} `} </p>
               {movie.release_date ? (
                 <p>Release Date: {movie.release_date}</p>
               ) : movie.first_air_date ? (

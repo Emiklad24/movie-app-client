@@ -5,7 +5,7 @@ class SearchResults extends Component {
   render() {
     return (
       <>
-        <div className="container">
+        <div className="container uk-animation-fade">
           <div className="displaySearchResults">
             <div className="container">
               <div className="searchBar">

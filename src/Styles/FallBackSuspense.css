@@ -13,8 +13,60 @@
   align-items: center !important;
 }
 
+.retry-button {
+  background: none;
+  line-height: 1.5;
+  padding: 15px;
+  font-weight: bold;
+  color: #daa520;
+  border-color: #daa520;
+  border-width: 3px;
+  margin-top: 15px;
+}
+
 .fa-pulse {
   color: #daa520;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;700&display=swap");
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+
+.errorBoundary {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100vh;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.errorBoundary h1 {
+  color: #fff;
+  font-weight: 500;
+}
+
+.goBack {
+  font-size: 20px;
+  color: #daa520;
+  font-weight: 300;
+}
+
+.goBack:hover {
+  text-decoration: none;
+  color: #fff;
+}
+/*# sourceMappingURL=Error404.css.map */
 
 /*# sourceMappingURL=fallBackSuspense.css.map */

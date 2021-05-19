@@ -2,10 +2,11 @@ import React from "react";
 import "../Styles/Search.css";
 import ReactDOM from "react-dom";
 
-function FetchMore({ fetchMore, isLoading }) {
+function FetchMore({ fetchMore, isLoading, prefetchMore }) {
   return ReactDOM.createPortal(
     <>
       <div
+        // onMouseEnter={() => prefetchMore()}
         className="btn-Modal-fetch"
         id="toggle-modal-button"
         onClick={() => fetchMore(true)}

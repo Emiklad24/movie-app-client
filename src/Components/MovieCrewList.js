@@ -3,7 +3,7 @@ import "../Styles/MovieActorList.css";
 import noImage from "../Assets/Images/noimage.png";
 import { Link } from "react-router-dom";
 
-class MovieActorList extends Component {
+class MovieCrewList extends Component {
   constructor(props) {
     super(props);
 
@@ -11,39 +11,39 @@ class MovieActorList extends Component {
       showAll: false,
     };
   }
-  showAllCastView = (e) => {
+  showAllCrewView = (e) => {
     this.setState({ showAll: e.target.checked });
   };
 
   render() {
-    const { actors } = this.props;
+    const { crew } = this.props;
     const { showAll } = this.state;
-    const firstTwentyCast = actors.slice(0, 12);
+    const firstTwentyCast = crew.slice(0, 12);
 
     return (
       <div className="container">
         <div className="movie-cast uk-animation-fade delay: 200">
           <div className="d-flex justify-content-between align-align-items-center">
-            <h3 className="cast-title mb-4">Casts</h3>
-            {actors.length > 12 ? (
+            <h3 className="cast-title mb-4">Crews</h3>
+            {crew.length > 12 ? (
               <div className="custom-control custom-switch pr-5 info">
                 <input
                   type="checkbox"
                   className="custom-control-input info"
-                  id="show-all"
-                  onChange={this.showAllCastView}
+                  id="show-all-crew"
+                  onChange={this.showAllCrewView}
                   checked={showAll}
-                  // name="actors-toggle"
+                  name="crew-togglehkjkk"
                 />
-                <label className="custom-control-label" htmlFor="show-all">
-                  Show all {actors.length} casts
+                <label className="custom-control-label" htmlFor="show-all-crew">
+                  Show all {crew.length} crews
                 </label>
               </div>
             ) : null}
           </div>
           <div className="movie-cast-list d-flex flex-wrap justify-content-md-center justify-content-lg-start justify-content-center align-items-stretch">
-            {actors && showAll
-              ? actors.map((actor, index) => (
+            {crew && showAll
+              ? crew?.map((actor, index) => (
                   <Link to={`/${actor?.name}/${actor?.id}`} key={index}>
                     <div className="movie-cast-item uk-animation-fade">
                       <img
@@ -58,13 +58,18 @@ class MovieActorList extends Component {
                         loading="lazy"
                       />
                       <div className="movie-cast-info">
-                        {actor.name || ""} <br />
-                        <span className="small">{actor.character || ""}</span>
+                        {actor.name || ""}
+                        <div>
+                          <span className="small">
+                            {actor.department || ""}
+                          </span>
+                        </div>
+                        <span className="small">{actor.job || ""}</span>
                       </div>
                     </div>
                   </Link>
                 ))
-              : actors && !showAll
+              : crew && !showAll
               ? firstTwentyCast.map((actor, index) => (
                   <Link to={`/${actor?.name}/${actor?.id}`} key={index}>
                     <div className="movie-cast-item uk-animation-fade">
@@ -81,7 +86,12 @@ class MovieActorList extends Component {
                       />
                       <div className="movie-cast-info">
                         {actor.name || ""} <br />
-                        <span className="small">{actor.character || ""}</span>
+                        <div>
+                          <span className="small">
+                            {actor.department || ""}
+                          </span>{" "}
+                        </div>
+                        <span className="small">{actor.job || ""}</span>
                       </div>
                     </div>
                   </Link>
@@ -94,4 +104,4 @@ class MovieActorList extends Component {
   }
 }
 
-export default MovieActorList;
+export default MovieCrewList;

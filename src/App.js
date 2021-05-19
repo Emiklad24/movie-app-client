@@ -51,15 +51,24 @@ const store = createStore(
 let persistor = persistStore(store);
 
 function App() {
-  useGoogleOneTapLogin({
-    onError: (error) => console.log(error),
-    onSuccess: (response) => console.log(response),
-    googleAccountConfigs: {
+  React.useEffect(() => {
+    google.accounts.id.initialize({
       client_id:
         "439002703401-m4c6p240qnpfi7np4ksfhd9dfss2nt21.apps.googleusercontent.com",
-      // callback: checkObject,
-    },
-  });
+      callback: authCallback,
+    });
+    google.accounts.id.prompt();
+  }, []);
+
+  // useGoogleOneTapLogin({
+  //   onError: (error) => console.log(error),
+  //   onSuccess: (response) => console.log(response),
+  //   googleAccountConfigs: {
+  //     client_id:
+  //       "439002703401-m4c6p240qnpfi7np4ksfhd9dfss2nt21.apps.googleusercontent.com",
+  //     // callback: checkObject,
+  //   },
+  // });
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>

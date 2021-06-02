@@ -5,7 +5,7 @@ import { NowPlayingMoviesStore } from "../store/nowPlayingMovies.store";
 import { useQuery } from "react-query";
 import { fetchNowPlayingMoviesKey } from "../util/appCacheKeys";
 import { fetchNowPlaying } from "../services/fetchNowPlayingMovies.service";
-import { queryClient } from "../util/misc";
+// import { queryClient } from "../util/misc";
 
 function NowPlaying() {
   const [runQuery, setRunQuery] = React.useState(false);

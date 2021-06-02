@@ -84,14 +84,14 @@ class Signup extends Component {
                 >
                   <i className="fa fa-google"></i> Sign up with Google
                 </a>
+
                 <a
                   className="btn btn-primary btn-lg btn-social mx-auto mt-2"
                   style={{ borderRadius: 0 }}
                   onClick={() =>
                     swal({
                       title: "Coming Soon..👍 👍 👍 ",
-                      text:
-                        "this feature will let you sign up with your facebook account",
+                      text: "this feature will let you sign up with your facebook account",
                     })
                   }
                 >
@@ -102,41 +102,6 @@ class Signup extends Component {
                   <Link to="/login"> Login</Link>
                 </p>
               </div>
-              {/* <div className="form-title" id="form-title">Sign up</div>
-                            <div className="form-row">
-                                <div className="input-group">
-                                    <div className="input-group-prepend">
-                                        <div className="input-group-text">
-                                            <i className="fa fa-user"></i>
-                                        </div>
-                                    </div>
-                                    <input type="email" className="form-control" id="email" name="email" placeholder="Email" required onChange={this.onChangeHandler} value={email} disabled={isLoading} />
-                                </div>
-                            </div>
-                            <div className="form-row">
-                                <div className="input-group">
-                                    <div className="input-group-prepend">
-                                        <div className="input-group-text">
-                                            <i className="fa fa-lock"></i>
-                                        </div>
-                                    </div>
-                                    <input type="password" className="form-control" id="password" name="password" placeholder="Password" required onChange={this.onChangeHandler} value={password} disabled={isLoading} />
-                                </div>
-                            </div>
-                            <div className="form-row">
-                                <div className="input-group">
-                                    <div className="input-group-prepend">
-                                        <div className="input-group-text">
-                                            <i className="fa fa-lock"></i>
-                                        </div>
-                                    </div>
-                                    <input type="password" className="form-control" id="repeatPassword" name="repeatPassword" placeholder="Repeat Password" required onChange={this.onChangeHandler} value={repeatPassword} disabled={isLoading} />
-                                </div>
-                            </div>
-                            <div className="form-row login">
-                                <input type="submit" value="Sign Up" disabled={isLoading} />
-                                <p>Already have an account <i className="fa fa-arrow-right"></i><Link to="/login"> Login</Link></p>
-                            </div> */}
             </form>
           </div>
         </div>

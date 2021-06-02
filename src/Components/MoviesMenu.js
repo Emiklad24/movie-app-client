@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import PopularMovies from "./PopularMovies";
 import NowPlayingMovies from "./NowPlayingMovies";
 import TopRatedMovies from "./TopRatedMovies";

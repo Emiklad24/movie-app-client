@@ -5,7 +5,7 @@ import { useQuery } from "react-query";
 import { fetchUpcomingMoviesKey } from "../util/appCacheKeys";
 import { fetchUpcomingMovies } from "../services/fetchUpcomingMovies.service";
 import { upcomingMoviesStore } from "../store/upcomingMovies.store";
-import { queryClient } from "../util/misc";
+// import { queryClient } from "../util/misc";
 
 function UpcomingMovies() {
   const [runQuery, setRunQuery] = React.useState(false);

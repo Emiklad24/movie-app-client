@@ -5,7 +5,7 @@ import { PopularMoviesStore } from "../store/popularMovies.store";
 import { useQuery } from "react-query";
 import { fetchPopularMovies } from "../services/fetchPopularMovies.service";
 import { fetchPopularMoviesKey } from "../util/appCacheKeys";
-import { queryClient } from "../util/misc";
+// import { queryClient } from "../util/misc";
 function PopularMovies() {
   const [runQuery, setRunQuery] = React.useState(false);
   const popularMovies = PopularMoviesStore((state) => state?.popularMovies);

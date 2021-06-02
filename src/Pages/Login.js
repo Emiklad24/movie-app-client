@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import "../Styles/Login.css";
-import { Link, Redirect } from "react-router-dom";
 import Search from "../Components/Search";
 import { socketURL } from "../FeathersClient";
 import { authStore } from "../store/auth.store";
-
+import { Redirect } from "react-router";
 function Login() {
   const isAuthenticated = authStore((state) => state?.isAuthenticated);
   if (isAuthenticated === true) {

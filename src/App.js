@@ -1,5 +1,4 @@
-/*global google*/
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Error404 from "./Pages/Erro404";
 import { Provider } from "react-redux";
@@ -51,24 +50,15 @@ const store = createStore(
 let persistor = persistStore(store);
 
 function App() {
-  React.useEffect(() => {
-    google.accounts.id.initialize({
+  useGoogleOneTapLogin({
+    onError: (error) => console.log(error),
+    onSuccess: (response) => console.log(response),
+    googleAccountConfigs: {
       client_id:
         "439002703401-m4c6p240qnpfi7np4ksfhd9dfss2nt21.apps.googleusercontent.com",
-      callback: authCallback,
-    });
-    google.accounts.id.prompt();
-  }, []);
-
-  // useGoogleOneTapLogin({
-  //   onError: (error) => console.log(error),
-  //   onSuccess: (response) => console.log(response),
-  //   googleAccountConfigs: {
-  //     client_id:
-  //       "439002703401-m4c6p240qnpfi7np4ksfhd9dfss2nt21.apps.googleusercontent.com",
-  //     // callback: checkObject,
-  //   },
-  // });
+      // callback: checkObject,
+    },
+  });
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>

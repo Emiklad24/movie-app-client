@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { fetchTopRatedMovies } from "../services/fetchTopRatedMovies.service";
 import { TopRatedMoviesStore } from "../store/topRatedMovies.store";
 import { fetchTopRatedMoviesKey } from "../util/appCacheKeys";
-import { queryClient } from "../util/misc";
+// import { queryClient } from "../util/misc";
 import FetchMore from "./FetchMore";
 import MovieCard from "./MovieCard";
 

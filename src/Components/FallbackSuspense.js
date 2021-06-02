@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "../Styles/FallBackSuspense.css";
 
 function FallBackSuspense({ error, timedOut, pastDelay, retry }) {
@@ -10,7 +10,11 @@ function FallBackSuspense({ error, timedOut, pastDelay, retry }) {
             <div className="col">
               <div className="errorBoundary">
                 <h1>An error occurred. </h1>
-                <h1 className="text-center">😔 😔 😔</h1>
+                <h1 className="text-center">
+                  <span role="img" aria-label="sad emoji">
+                    😔 😔 😔
+                  </span>
+                </h1>
                 <button
                   className="retry-button"
                   onClick={window.location.reload()}

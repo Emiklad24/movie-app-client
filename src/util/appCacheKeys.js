@@ -28,3 +28,5 @@ export const fetchPersonTvCreditsKey = "FETCH_PERSON_TV_CREDITS";
 export const fetchPersonMoviesCreditsKey = "FETCH_PERSON_MOVIES_CREDITS";
 
 export const fetchPersonDetailKey = "FETCH_PERSON_DETAIL";
+
+export const discoverMoviesKey = "FETCH_DISCOVER_MOVIES";

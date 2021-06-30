@@ -1,22 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;700&display=swap");
 .form {
   height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .form form {
   padding: 10px;
   background-color: black;
   -webkit-box-shadow: 0 5px 10px rgba(218, 165, 32, 0.4);
-          box-shadow: 0 5px 10px rgba(218, 165, 32, 0.4);
+  box-shadow: 0 5px 10px rgba(218, 165, 32, 0.4);
   border: 2px solid black;
   border-top: 1px solid #fff;
   display: -webkit-box;
@@ -24,18 +23,18 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   height: 400px;
   width: 350px;
 }
 
 .form form .form-title {
   font-size: 20px;
-  font-family: 'Raleway', sans-serif !important;
+  font-family: "Raleway", sans-serif !important;
   line-height: 40px;
   text-transform: uppercase;
   color: #fff;
@@ -47,7 +46,8 @@
   margin: 15px 0px;
 }
 
-.form form .form-row .form-control, .form form .form-row .input-group-text {
+.form form .form-row .form-control,
+.form form .form-row .input-group-text {
   background-color: rgba(0, 0, 0, 0.5);
   border: 0;
   border-bottom: 2px solid #fff;
@@ -56,7 +56,8 @@
   padding: 2px 5px;
 }
 
-.form form .form-row .form-control:focus-within, .form form .form-row .input-group-text:focus-within {
+.form form .form-row .form-control:focus-within,
+.form form .form-row .input-group-text:focus-within {
   border: 0;
   outline: none;
   outline-color: rgba(0, 0, 0, 0.5) !important;
@@ -64,7 +65,7 @@
 }
 
 .form form .form-row .input-group-text {
-  color: #DAA520;
+  color: #daa520;
 }
 
 .form form .login {
@@ -73,14 +74,14 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .form form .login input[type="submit"] {
@@ -89,7 +90,7 @@
   width: 100%;
   border: 2px solid #fff;
   font-weight: 500;
-  font-family: 'Raleway', sans-serif !important;
+  font-family: "Raleway", sans-serif !important;
   padding: 2px;
   font-size: 18px;
 }
@@ -101,13 +102,13 @@
 
 .form form .login .login-icons a .fa {
   padding-left: 7px;
-  color: #DAA520;
+  color: #daa520;
 }
 
 .form form .login .login-icons a:hover {
   text-decoration: none;
   -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .form form .login p {
@@ -117,7 +118,7 @@
 }
 
 .form form .login p a {
-  color: #DAA520;
+  color: #daa520;
   text-decoration: none;
 }
 

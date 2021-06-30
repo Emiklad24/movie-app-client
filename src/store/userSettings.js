@@ -1,15 +1,22 @@
 import create from "zustand";
-import { persist2 } from "./storeHelper";
-import { userSettingsStoreName } from "./storeLocalStorageNames";
+import { storeVersion, userSettingsStoreName } from "./storeLocalStorageNames";
+
+import { persist } from "zustand/middleware";
 
 export const UserSettingsStore = create(
-  persist2(userSettingsStoreName, (set, get) => ({
-    currentView: "Popular",
+  persist(
+    (set, get) => ({
+      currentView: "Popular",
 
-    switchCurrentView: (view) => {
-      return set((state) => {
-        state.currentView = view;
-      });
-    },
-  }))
+      switchCurrentView: (view) => {
+        return set((state) => {
+          state.currentView = view;
+        });
+      },
+    }),
+    {
+      name: userSettingsStoreName,
+      version: storeVersion,
+    }
+  )
 );

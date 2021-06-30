@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;700&display=swap");
 .hero-slide {
   position: relative;
 }
@@ -39,7 +38,7 @@
 .hero-slide .movie-features .title {
   color: #fff;
   font-weight: 700;
-   font-family: 'Raleway', sans-serif !important;
+  font-family: "Raleway", sans-serif !important;
   font-size: 60px;
   line-height: 50px;
 }
@@ -48,7 +47,7 @@
   color: #fff;
   line-height: 20px;
   font-size: 18px;
-  font-family: 'Raleway', sans-serif !important;
+  font-family: "Raleway", sans-serif !important;
   font-weight: 300;
   overflow-wrap: break-word;
   word-wrap: break-word;

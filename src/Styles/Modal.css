@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;700&display=swap");
 .modal-content {
   background-color: rgba(0, 0, 0, 0.5) !important;
   border: 1px solid #fff !important;
@@ -8,7 +7,8 @@
   border-bottom: 0px !important;
 }
 
-.modal-content .modal-header .close, .modal-content .modal-header .modal-title {
+.modal-content .modal-header .close,
+.modal-content .modal-header .modal-title {
   color: #fff !important;
 }
 
@@ -18,16 +18,16 @@
 }
 
 .modal-content .modal-footer .btn-secondary {
-  background-color: #DAA520 !important;
+  background-color: #daa520 !important;
   color: black !important;
-  border: 1px solid #DAA520 !important;
+  border: 1px solid #daa520 !important;
   border-radius: 20px !important;
-  outline-color: #DAA520 !important;
+  outline-color: #daa520 !important;
   font-weight: 500;
 }
 
 .modal-content .modal-footer .btn-secondary:active {
-  outline-color: #DAA520 !important;
+  outline-color: #daa520 !important;
 }
 
 .modal-content .input-group-text {
@@ -47,7 +47,7 @@
 }
 
 .modal-content .input-group-text {
-  color: #DAA520;
+  color: #daa520;
 }
 
 .modal-content .form-control {

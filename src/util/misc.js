@@ -9,15 +9,15 @@ export const apiURL = "https://api.themoviedb.org/3";
 export const queryClientSettings = {
   defaultOptions: {
     queries: {
-      retry: 3,
+      retry: 2,
       refetchOnMount: "always",
       refetchOnWindowFocus: "always",
       refetchOnReconnect: "always",
-      cacheTime: Infinity,
-      refetchInterval: 1000 * 60 * 5, //5 mins
+      cacheTime: 1000 * 60 * 500 * 1000,
+      refetchInterval: 1000 * 60 * 500, //50 mins
       refetchIntervalInBackground: true,
       suspense: false,
-      staleTime: 1000,
+      staleTime: 1000 * 60 * 500,
     },
     mutations: {
       // mutation options

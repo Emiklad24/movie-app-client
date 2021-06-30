@@ -17,7 +17,7 @@ import { QueryClientProvider } from "react-query";
 import { queryClient } from "./util/misc";
 import { ReactQueryDevtools } from "react-query/devtools";
 import GlobalFetches from "./Components/GlobalFetches/GlobalFetches";
-import { useGoogleOneTapLogin } from "react-google-one-tap-login";
+// import { useGoogleOneTapLogin } from "react-google-one-tap-login";
 import {
   Movies,
   Login,
@@ -25,8 +25,10 @@ import {
   RatedMovies,
   MoviePage,
   PersonPage,
+  Discover,
 } from "./util/pagesImport";
 import { Header } from "./Components/Header";
+import { globalStoreName } from "./store/storeLocalStorageNames";
 const middleware = [thunk];
 const persistConfig = {
   key: "movie-app",
@@ -50,15 +52,7 @@ const store = createStore(
 let persistor = persistStore(store);
 
 function App() {
-  useGoogleOneTapLogin({
-    onError: (error) => console.log(error),
-    onSuccess: (response) => console.log(response),
-    googleAccountConfigs: {
-      client_id:
-        "439002703401-m4c6p240qnpfi7np4ksfhd9dfss2nt21.apps.googleusercontent.com",
-      // callback: checkObject,
-    },
-  });
+  localStorage.removeItem(globalStoreName);
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
@@ -78,6 +72,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Movies} />
             <Route exact path="/join" component={Login} />
+            <Route exact path="/discover" component={Discover} />
             <PrivateRoute exact path="/watchlist" component={WatchList} />
             <PrivateRoute exact path="/rated" component={RatedMovies} />
             <Route

@@ -58,6 +58,13 @@ export class Header extends Component {
                     </span>
                     <span className="menu-text">Join</span>
                   </Link>
+
+                  <Link className="item  uk-animation-fade" to="/discover">
+                    <span className="nav-icon">
+                      <i className="fa fa-star"></i>
+                    </span>
+                    <span className="menu-text">Discover</span>
+                  </Link>
                 </>
               )}
             </div>

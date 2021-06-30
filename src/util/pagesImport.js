@@ -51,3 +51,10 @@ export const PersonPage = LoadableVisibility({
   delay: delay,
   timeout: timeout,
 });
+
+export const Discover = LoadableVisibility({
+  loader: () => import("../Pages/Discover/Discover"),
+  loading: LoadingSuspense,
+  delay: delay,
+  timeout: timeout,
+});

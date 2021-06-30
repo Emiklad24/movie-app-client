@@ -24,7 +24,6 @@ function NowPlaying() {
     fetchNowPlaying,
     {
       onSuccess: (result) => {
-        console.log(result);
         setRunQuery(false);
         updateCurrentPage(result, currentPage + 1);
         updateNowPlayingMovies(result);

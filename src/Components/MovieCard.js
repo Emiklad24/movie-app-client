@@ -201,10 +201,8 @@ class MovieCard extends Component {
     const currentMovieName =
       movie.title || movie.original_name || movie.original_title;
     if (forceUpdate === true) {
-      window.location.href = `/${currentMovieName}?id=${currentMovieId}`.replace(
-        "%",
-        ""
-      );
+      window.location.href =
+        `/${currentMovieName}?id=${currentMovieId}`.replace("%", "");
     }
     return;
   };
@@ -224,7 +222,7 @@ class MovieCard extends Component {
       <div
         className="col mt-5 uk-animation-fade-meduim"
         uk-scrollspy="cls: uk-animation-fade; target: .card; delay: 300; repeat: true"
-        onMouseEnter={() => this.prefetchAllRelatedQueries(currentMovieId)}
+        // onMouseEnter={() => this.prefetchAllRelatedQueries(currentMovieId)}
       >
         <div className="card">
           <Link to={urlPath} onClick={this.someMethod}>

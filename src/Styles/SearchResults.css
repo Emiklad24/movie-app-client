@@ -1,12 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;700&display=swap");
 .displaySearch {
-    display: none;
-  }
-  
-  .searchResults {
-    background-color: rgba(0, 0, 0, 0.5) !important;
-    min-height: 100vh;
-    z-index: 1;
+  display: none;
+}
+
+.searchResults {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  min-height: 100vh;
+  z-index: 1;
 }
 .btn-Modal {
   position: fixed;
@@ -25,14 +24,15 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
-.btn-Modal:active, .btn-Modal:hover {
+.btn-Modal:active,
+.btn-Modal:hover {
   outline-color: #fff !important;
   text-decoration: none;
 }
@@ -43,11 +43,11 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   height: 100px;
   width: 300px;
 }
@@ -69,7 +69,7 @@
 }
 
 .input-group-text {
-  color: #DAA520;
+  color: #daa520;
 }
 
 .form-control {

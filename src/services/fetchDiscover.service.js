@@ -1,9 +1,7 @@
-import axios from "axios";
-import { apiURL } from "../util/misc";
-// import qs from "qs";
+import { axiosInstance } from "../util/axiosInstance";
 
 export const fetchDiscoverMovies = async ({ queryKey }) => {
-  let nowPlaying = await axios.get(`${apiURL}/discover/movie`, {
+  let nowPlaying = await axiosInstance.get(`/discover/movie`, {
     params: {
       api_key: process.env.REACT_APP_API_KEY,
       language: "en-US",

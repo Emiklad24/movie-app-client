@@ -6,18 +6,17 @@ import { BrowserRouter } from "react-router-dom";
 import { hydrate, render } from "react-dom";
 import swConfig from "./swConfig";
 
-
 const rootElement = document.getElementById("root");
 if (rootElement.hasChildNodes()) {
   hydrate(
-    <BrowserRouter>
+    <BrowserRouter forceRefresh={true}>
       <App />
     </BrowserRouter>,
     rootElement
   );
 } else {
   render(
-    <BrowserRouter>
+    <BrowserRouter forceRefresh={true}>
       <App />
     </BrowserRouter>,
     rootElement

@@ -58,3 +58,9 @@ export const Discover = LoadableVisibility({
   delay: delay,
   timeout: timeout,
 });
+export const GoogleAuthCallback = LoadableVisibility({
+  loader: () => import("../Pages/GoogleAuthCallback/GoogleAuthCallback"),
+  loading: LoadingSuspense,
+  delay: delay,
+  timeout: timeout,
+});

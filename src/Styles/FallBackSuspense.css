@@ -23,6 +23,11 @@
   margin-top: 15px;
 }
 
+.status-message {
+  color: #daa520;
+  font-size: 20px;
+}
+
 .fa-pulse {
   color: #daa520;
 }

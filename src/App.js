@@ -26,6 +26,7 @@ import {
   MoviePage,
   PersonPage,
   Discover,
+  GoogleAuthCallback,
 } from "./util/pagesImport";
 import { Header } from "./Components/Header";
 import { globalStoreName } from "./store/storeLocalStorageNames";
@@ -72,6 +73,11 @@ function App() {
           <Switch>
             <Route exact path="/" component={Movies} />
             <Route exact path="/join" component={Login} />
+            <Route
+              exact
+              path="/auth/google/callback"
+              component={GoogleAuthCallback}
+            />
             <Route exact path="/discover" component={Discover} />
             <PrivateRoute exact path="/watchlist" component={WatchList} />
             <PrivateRoute exact path="/rated" component={RatedMovies} />

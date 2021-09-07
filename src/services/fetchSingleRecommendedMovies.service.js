@@ -1,10 +1,9 @@
-import axios from "axios";
-import { apiURL } from "../util/misc";
+import { axiosInstance } from "../util/axiosInstance";
 
 export const fetchSingleRecommendedMovies = async ({ queryKey }) => {
   const id = queryKey[1] ? queryKey[1] : 1;
 
-  const movies = await axios.get(`${apiURL}/movie/${id}/recommendations`, {
+  const movies = await axiosInstance.get(`/movie/${id}/recommendations`, {
     params: {
       api_key: process.env.REACT_APP_API_KEY,
       language: "en",

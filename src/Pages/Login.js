@@ -20,7 +20,7 @@ function Login() {
             </div>
             <div className="form-row login">
               <a
-                href={`${socketURL}/oauth/google`}
+                href={`${socketURL}/connect/google`}
                 className="btn btn-danger btn-lg btn-social mx-auto"
                 style={{ borderRadius: 0 }}
               >

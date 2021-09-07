@@ -1,4 +1,4 @@
-export const socketURL = "http://localhost:1337";
+export const socketURL = "https://movie-app-backend-app.herokuapp.com";
 // export const socketURL = "https://movie-app-serve.herokuapp.com";
 
 const client = {};

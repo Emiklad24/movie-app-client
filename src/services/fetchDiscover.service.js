@@ -3,7 +3,7 @@ import { axiosInstance } from "../util/axiosInstance";
 export const fetchDiscoverMovies = async ({ queryKey }) => {
   let nowPlaying = await axiosInstance.get(`/discover/movie`, {
     params: {
-      api_key: process.env.REACT_APP_API_KEY,
+      api_key: "034af975420c91a0afd14fb5ddee1134",
       language: "en-US",
       page: 1,
       include_adult: true,

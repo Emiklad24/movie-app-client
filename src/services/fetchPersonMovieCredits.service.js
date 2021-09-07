@@ -6,7 +6,7 @@ export const fetchPersonMovieCredits = async ({ queryKey }) => {
   const moviePerson = await axiosInstance.get(
     `/person/${personId}/movie_credits`,
     {
-      params: { api_key: process.env.REACT_APP_API_KEY },
+      params: { api_key: "034af975420c91a0afd14fb5ddee1134" },
     }
   );
 

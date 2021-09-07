@@ -5,7 +5,7 @@ export const fetchSingleSimilarMovies = async ({ queryKey }) => {
 
   const movies = await axiosInstance.get(`/movie/${id}/similar`, {
     params: {
-      api_key: process.env.REACT_APP_API_KEY,
+      api_key: "034af975420c91a0afd14fb5ddee1134",
       language: "en",
       page: 1,
     },

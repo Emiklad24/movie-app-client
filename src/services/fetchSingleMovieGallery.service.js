@@ -5,7 +5,7 @@ export const fetchSingleMovieGallery = async ({ queryKey }) => {
 
   const moviePosters = await axiosInstance.get(`/movie/${id}/images`, {
     params: {
-      api_key: process.env.REACT_APP_API_KEY,
+      api_key: "034af975420c91a0afd14fb5ddee1134",
       language: "en-US",
       include_image_language: "en",
     },

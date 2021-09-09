@@ -3,10 +3,12 @@ import "../Styles/Search.css";
 import ReactDOM from "react-dom";
 import axios from "axios";
 import Loading from "./Loading";
-import MovieCard from "./MovieCard";
+import MovieCard from "./MovieCardLegacy";
 import ErrorMovieSearch from "./ErrorMovieSearch";
 import SearchOptionTitle from "./SearchOptionTitle";
 import SearchResultsPeople from "./SearchResultPeople";
+import Overview from "./Overview/Overview";
+import AddToWatchList from "./AddToWatchList/AddToWatchList";
 
 class Search extends Component {
   constructor(props) {
@@ -183,9 +185,8 @@ class Search extends Component {
                       <MovieCard
                         movie={movie}
                         key={movie.id}
-                        canDelete={false}
-                        onWatchlist={false}
-                        forceUpdate={true}
+                        RightButton={AddToWatchList}
+                        LeftButton={Overview}
                       />
                     );
                   })}

@@ -1,22 +1,22 @@
 import React from "react";
 import { useQuery } from "react-query";
 import { useHistory, Redirect } from "react-router";
-import PersonImage from "../Components/MovieGallery";
-import PersonMoviesCredits from "../Components/PersonMoviesCredits/PersonMoviesCredits";
-import PersonPageCard from "../Components/PersonPageCard/PersonPageCard";
-import PersonTvCredits from "../Components/PersonTvCredits.js/PersonTvCredits";
-import Search from "../Components/Search";
-import { fetchPersonDetail } from "../services/fetchPersonDetail.service";
-import { fetchPersonImages } from "../services/fetchPersonImages.service";
-import { fetchPersonMovieCredits } from "../services/fetchPersonMovieCredits.service";
-import { fetchPersonTvCredits } from "../services/fetchPersonTvCredits.service";
+import PersonImage from "../../Components/MovieGallery";
+import PersonMoviesCredits from "../../Components/PersonMoviesCredits/PersonMoviesCredits";
+import PersonPageCard from "../../Components/PersonPageCard/PersonPageCard";
+import PersonTvCredits from "../../Components/PersonTvCredits.js/PersonTvCredits";
+import Search from "../../Components/Search";
+import { fetchPersonDetail } from "../../services/fetchPersonDetail.service";
+import { fetchPersonImages } from "../../services/fetchPersonImages.service";
+import { fetchPersonMovieCredits } from "../../services/fetchPersonMovieCredits.service";
+import { fetchPersonTvCredits } from "../../services/fetchPersonTvCredits.service";
 import {
   fetchPersonDetailKey,
   fetchPersonImagesKey,
   fetchPersonMoviesCreditsKey,
   fetchPersonTvCreditsKey,
-} from "../util/appCacheKeys";
-import Error from "./Erro404";
+} from "../../util/appCacheKeys";
+import Error from "../Erro404";
 
 export default function PersonPage() {
   const {

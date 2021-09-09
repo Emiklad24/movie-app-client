@@ -1,5 +1,11 @@
 import { QueryClient } from "react-query";
+import { persistQueryClient } from "react-query/persistQueryClient-experimental";
+import { createWebStoragePersistor } from "react-query/createWebStoragePersistor-experimental";
+import { broadcastQueryClient } from "react-query/broadcastQueryClient-experimental";
 
+export const screenWidth = window?.screen?.width;
+export const delay = 500;
+export const timeout = 20000;
 export const isDev = process.env.NODE_ENV !== "production";
 export const apiURL = "https://api.themoviedb.org/3";
 
@@ -10,11 +16,11 @@ const queryClientSettings = {
       refetchOnMount: "always",
       refetchOnWindowFocus: "always",
       refetchOnReconnect: "always",
-      cacheTime: 3.6e6,
-      refetchInterval: 3.6e6, //1 hour
-      refetchIntervalInBackground: false,
+      cacheTime: 6.048e8,
+      refetchInterval: 30000,
+      refetchIntervalInBackground: true,
       suspense: false,
-      staleTime: 3.6e6,
+      staleTime: 6.048e8,
     },
     mutations: {
       retry: 2,
@@ -22,9 +28,17 @@ const queryClientSettings = {
   },
 };
 
-export const screenWidth = window?.screen?.width;
-// App routing settings
-export const delay = 500;
-export const timeout = 20000;
+const localStoragePersistor = createWebStoragePersistor({
+  storage: window.localStorage,
+});
 
-export const queryClient = new QueryClient(queryClientSettings);
+export let queryClient = new QueryClient(queryClientSettings);
+
+persistQueryClient({
+  queryClient,
+  persistor: localStoragePersistor,
+});
+broadcastQueryClient({
+  queryClient,
+  broadcastChannel: "Movie-appwfdfefdregftggtlo",
+});

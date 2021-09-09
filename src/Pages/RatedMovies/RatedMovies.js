@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import "../Styles/Watchlist.css";
+import "../../Styles/Watchlist.css";
 import { connect } from "react-redux";
-import MovieCard from "../Components/MovieCardRatedMovies";
-import NoMovieList from "../Components/NoMovieList";
-import Loading from "../Components/Loading";
-import { fetchRatedMovies } from "../actions/ratedMoviesAction";
-import Search from "../Components/Search";
+import MovieCard from "../../Components/MovieCardRatedMovies";
+import NoMovieList from "../../Components/NoMovieList";
+import Loading from "../../Components/Loading";
+import { fetchRatedMovies } from "../../actions/ratedMoviesAction";
+import Search from "../../Components/Search";
+import Overview from "../../Components/Overview/Overview";
+import ArchiveMovie from "../../Components/ArchiveMovie/ArchiveMovie";
 
 class RatedMovies extends Component {
   componentDidMount = () => {
@@ -24,8 +26,8 @@ class RatedMovies extends Component {
                 <MovieCard
                   movie={movie}
                   key={movie.id}
-                  canDelete={true}
-                  onWatchList={false}
+                  RightButton={ArchiveMovie}
+                  LeftButton={Overview}
                 />
               ))}
             </div>

@@ -30,3 +30,11 @@ export const fetchPersonMoviesCreditsKey = "FETCH_PERSON_MOVIES_CREDITS";
 export const fetchPersonDetailKey = "FETCH_PERSON_DETAIL";
 
 export const discoverMoviesKey = "FETCH_DISCOVER_MOVIES";
+
+export const fetchWatchListsKey = "FETCH_WATCHLISTS";
+
+export const addWatchListskey = "ADD_WATCHLISTS";
+
+export const editWatchListkey = "EDIT_WATCHLIST";
+
+export const refreshUserDetailskey = "REFRESH_USER_DETAILS";

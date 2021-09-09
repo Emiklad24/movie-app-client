@@ -23,7 +23,8 @@ import { fetchSingleMovieGallery } from "../services/fetchSingleMovieGallery.ser
 import { fetchSingleMovieDetail } from "../services/fetchSingleMovieDetail.service";
 import { fetchSingleMovieCast } from "../services/fetchSingleMovieCast.service";
 import { fetchSingleMovieTrailers } from "../services/fetchSingleMovieTrailers.service";
-class MovieCard extends Component {
+
+class MovieCardLegacy extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -308,5 +309,5 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { addWatchlist, removeWatchlist })(
-  MovieCard
+  MovieCardLegacy
 );

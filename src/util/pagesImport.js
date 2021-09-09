@@ -5,48 +5,42 @@ import LoadableVisibility from "react-loadable-visibility/react-loadable";
 const delay = 500;
 const timeout = 20000;
 export const Movies = LoadableVisibility({
-  loader: () => import("../Pages/Movies"),
+  loader: () => import("../Pages/Movies/Movies"),
   loading: LoadingSuspense,
   delay: delay,
   timeout: timeout,
 });
 
-export const Login = LoadableVisibility({
-  loader: () => import("../Pages/Login"),
-  loading: LoadingSuspense,
-  delay: delay,
-  timeout: timeout,
-});
 export const WatchList = LoadableVisibility({
-  loader: () => import("../Pages/WatchList"),
+  loader: () => import("../Pages/WatchList/WatchList"),
   loading: LoadingSuspense,
   delay: delay,
   timeout: timeout,
 });
 
 export const Signup = LoadableVisibility({
-  loader: () => import("../Pages/Signup"),
+  loader: () => import("../Pages/Signup/Signup"),
   loading: LoadingSuspense,
   delay: delay,
   timeout: timeout,
 });
 
 export const RatedMovies = LoadableVisibility({
-  loader: () => import("../Pages/RatedMovies"),
+  loader: () => import("../Pages/RatedMovies/RatedMovies"),
   loading: LoadingSuspense,
   delay: delay,
   timeout: timeout,
 });
 
 export const MoviePage = LoadableVisibility({
-  loader: () => import("../Pages/MoviePage"),
+  loader: () => import("../Pages/MoviePage/MoviePage"),
   loading: LoadingSuspense,
   delay: delay,
   timeout: timeout,
 });
 
 export const PersonPage = LoadableVisibility({
-  loader: () => import("../Pages/PersonPage"),
+  loader: () => import("../Pages/PersonPage/PersonPage"),
   loading: LoadingSuspense,
   delay: delay,
   timeout: timeout,

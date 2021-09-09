@@ -3,7 +3,6 @@ import PopularMovies from "./PopularMovies";
 import NowPlayingMovies from "./NowPlayingMovies";
 import TopRatedMovies from "./TopRatedMovies";
 import UpcomingMovies from "./UpcomingMovies";
-// import { div } from "react-router-dom";
 import "../Styles/MoviesMenu.css";
 import { UserSettingsStore } from "../store/userSettings";
 

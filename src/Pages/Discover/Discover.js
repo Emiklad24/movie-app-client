@@ -1,7 +1,9 @@
 import React from "react";
 import { useQuery } from "react-query";
+import AddToWatchList from "../../Components/AddToWatchList/AddToWatchList";
 import DiscoverParamSettingsModal from "../../Components/DiscoverParamSettingsModal/DiscoverParamSettingsModal";
-import MovieCard from "../../Components/MovieCard";
+import MovieCard from "../../Components/MovieCardLegacy";
+import Overview from "../../Components/Overview/Overview";
 import { fetchDiscoverMovies } from "../../services/fetchDiscover.service";
 import { discoverMoviesKey } from "../../util/appCacheKeys";
 // import Search from "../../Components/Search"
@@ -17,9 +19,8 @@ export default function Discover() {
             <MovieCard
               movie={movie}
               key={movie?.id}
-              canDelete={false}
-              onWatchlist={false}
-              forceUpdate={true}
+              RightButton={AddToWatchList}
+              LeftButton={Overview}
             />
           ))}
         </div>

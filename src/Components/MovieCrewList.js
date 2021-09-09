@@ -24,7 +24,7 @@ class MovieCrewList extends Component {
       <div className="container">
         <div className="movie-cast uk-animation-fade delay: 200">
           <div className="d-flex justify-content-between align-align-items-center">
-            <h3 className="cast-title mb-4">Crews</h3>
+            <h3 className="cast-title mb-4">Crew</h3>
             {crew.length > 12 ? (
               <div className="custom-control custom-switch pr-5 info">
                 <input

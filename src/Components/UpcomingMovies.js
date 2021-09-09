@@ -1,15 +1,18 @@
 import React from "react";
-import MovieCard from "./MovieCard";
+import MovieCard from "./MovieCard/MovieCard";
 import FetchMore from "./FetchMore";
 import { useQuery } from "react-query";
 import { fetchUpcomingMoviesKey } from "../util/appCacheKeys";
 import { fetchUpcomingMovies } from "../services/fetchUpcomingMovies.service";
 import { upcomingMoviesStore } from "../store/upcomingMovies.store";
-// import { queryClient } from "../util/misc";
+import Overview from "./Overview/Overview";
+import AddToWatchList from "./AddToWatchList/AddToWatchList";
 
 function UpcomingMovies() {
   const [runQuery, setRunQuery] = React.useState(false);
+
   const upcomingMovies = upcomingMoviesStore((state) => state?.upcomingMovies);
+
   const updateCurrentPage = upcomingMoviesStore(
     (state) => state?.updateCurrentPage
   );
@@ -17,6 +20,7 @@ function UpcomingMovies() {
     (state) => state?.updateUpcomingMovies
   );
   const currentPage = upcomingMoviesStore((state) => state?.currentPage);
+
   const { isLoading } = useQuery(
     [fetchUpcomingMoviesKey, currentPage],
     fetchUpcomingMovies,
@@ -29,30 +33,20 @@ function UpcomingMovies() {
       enabled: runQuery,
     }
   );
-  // const prefetchMore = () => {
-  //   queryClient.prefetchQuery(
-  //     [fetchUpcomingMoviesKey, currentPage],
-  //     fetchUpcomingMovies
-  //   );
-  // };
+
   return (
     <>
       {upcomingMovies.map((movie) => {
         return (
           <MovieCard
             movie={movie}
-            key={movie.id}
-            canDelete={false}
-            onWatchlist={false}
-            forceUpdate={true}
+            key={movie?.id}
+            RightButton={AddToWatchList}
+            LeftButton={Overview}
           />
         );
       })}
-      <FetchMore
-        fetchMore={setRunQuery}
-        isLoading={isLoading}
-        // prefetchMore={prefetchMore}
-      />
+      <FetchMore fetchMore={setRunQuery} isLoading={isLoading} />
     </>
   );
 }

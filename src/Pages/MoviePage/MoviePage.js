@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import MovieGallery from "../Components/MovieGallery";
-import MoviePageCard from "../Components/MoviePageCard";
-import MovieActorList from "../Components/MovieActorList";
+import MovieGallery from "../../Components/MovieGallery";
+import MoviePageCard from "../../Components/MoviePageCard/MoviePageCard";
+import MovieActorList from "../../Components/MovieActorList";
 import { Redirect, useLocation } from "react-router-dom";
-import RecommendedMovies from "../Components/RecommendedMovies";
-import SimilarMovies from "../Components/SimilarMovies";
-import "../Styles/MoviesMenu.css";
-import Search from "../Components/Search";
-import Error from "./Erro404";
-import MovietrailerList from "../Components/MovieTrailerList";
+import RecommendedMovies from "../../Components/RecommendedMovies";
+import SimilarMovies from "../../Components/SimilarMovies/SimilarMovies";
+import "../../Styles/MoviesMenu.css";
+import Search from "../../Components/Search";
+import Error from "../Erro404";
+import MovietrailerList from "../../Components/MovieTrailerList";
 import { useQuery } from "react-query";
 import {
   fetchSingleMovieTrailersKey,
@@ -17,14 +17,14 @@ import {
   fetchRecommendedMoviesKey,
   fetchSimilarMoviesKey,
   fetchMovieGalleryKey,
-} from "../util/appCacheKeys";
-import { fetchSingleSimilarMovies } from "../services/fetchSingleSimilarMovies.service";
-import { fetchSingleRecommendedMovies } from "../services/fetchSingleRecommendedMovies.service";
-import { fetchSingleMovieGallery } from "../services/fetchSingleMovieGallery.service";
-import { fetchSingleMovieDetail } from "../services/fetchSingleMovieDetail.service";
-import { fetchSingleMovieCast } from "../services/fetchSingleMovieCast.service";
-import { fetchSingleMovieTrailers } from "../services/fetchSingleMovieTrailers.service";
-import MovieCrewList from "../Components/MovieCrewList";
+} from "../../util/appCacheKeys";
+import { fetchSingleSimilarMovies } from "../../services/fetchSingleSimilarMovies.service";
+import { fetchSingleRecommendedMovies } from "../../services/fetchSingleRecommendedMovies.service";
+import { fetchSingleMovieGallery } from "../../services/fetchSingleMovieGallery.service";
+import { fetchSingleMovieDetail } from "../../services/fetchSingleMovieDetail.service";
+import { fetchSingleMovieCast } from "../../services/fetchSingleMovieCast.service";
+import { fetchSingleMovieTrailers } from "../../services/fetchSingleMovieTrailers.service";
+import MovieCrewList from "../../Components/MovieCrewList";
 function MoviePage() {
   const { pathname, search } = useLocation();
 
@@ -69,7 +69,7 @@ function MoviePage() {
       {movieDetail && movieDetail?.data ? (
         <MoviePageCard
           movie={movieDetail?.data}
-          pathname={pathname.substr(1)}
+          pathname={pathname?.substr?.(1)}
         />
       ) : movieDetail?.isLoading ? (
         <div
@@ -126,12 +126,12 @@ function MoviePage() {
             </div>
           </div>
         )}
-      {movieGallery.isError &&
-      movieDetail.isError &&
-      movieTrailers.isError &&
-      moviesRecommended.isError &&
-      movieCast.isError &&
-      moviesSimilar.isError ? (
+      {movieGallery?.isError &&
+      movieDetail?.isError &&
+      movieTrailers?.isError &&
+      moviesRecommended?.isError &&
+      movieCast?.isError &&
+      moviesSimilar?.isError ? (
         <Error message={`No Info Available For This Movie`} emoji="😔 😔 😔" />
       ) : null}
 

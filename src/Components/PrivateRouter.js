@@ -1,36 +1,23 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
-import FallbackSuspense from "./FallbackSuspense";
+import useUserCredentialsStore from "../store/auth.store";
+import shallow from "zustand/shallow";
 
-const PrivateRoute = ({
-  isAuthLoading,
-  isAuthenticated,
-  component: Component,
-  ...rest
-}) => {
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  const { isAuthenticated } = useUserCredentialsStore(
+    (state) => ({
+      isAuthenticated: state.isAuthenticated,
+    }),
+    shallow
+  );
   return (
     <Route
       {...rest}
       render={(props) =>
-        isAuthLoading === true && isAuthenticated === null ? (
-          <FallbackSuspense />
-        ) : isAuthLoading === false && isAuthenticated === false ? (
-          <Redirect to="/join" />
-        ) : isAuthLoading === false && isAuthenticated === null ? (
-          <Redirect to="/join" />
-        ) : (
-          <Component {...props} />
-        )
+        !isAuthenticated ? <Redirect to="/join" /> : <Component {...props} />
       }
     />
   );
 };
 
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated,
-  isAuthLoading: state.auth.isLoading,
-  userData: state.auth.user,
-});
-
-export default connect(mapStateToProps, {})(PrivateRoute);
+export default PrivateRoute;

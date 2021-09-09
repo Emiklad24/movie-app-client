@@ -36,7 +36,7 @@ function Hero() {
                       src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`}
                       uk-cover
                       width="100%"
-                      alt={movie?.original_name}
+                      alt=""
                       loading="lazy"
                     />
                     <div className="hero-overlay"></div>

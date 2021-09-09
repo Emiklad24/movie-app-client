@@ -1,26 +1,39 @@
 import create from "zustand";
-import { persist } from "zustand/middleware";
+import { persist, devtools } from "zustand/middleware";
 import { authStoreName, storeVersion } from "./storeLocalStorageNames";
 
-export const authStore = create(
-  persist(
-    (set, get) => ({
-      isAuthenticated: null,
-      user: null,
-      token: null,
-      loadUser: (data) => {
-        return set((state) => {});
-      },
-      loginSucess: (data) => {
-        return set((state) => {});
-      },
-      resetAuth: (data) => {
-        return set((state) => {});
-      },
-    }),
-    {
-      name: authStoreName,
-      version: storeVersion,
-    }
-  )
-);
+let authStore = (set, get) => ({
+  jwt: null,
+  isAuthenticated: false,
+  userDetails: null,
+
+  populateUserInfoAndJwt: (payload) => {
+    set((state) => ({
+      userDetails: payload?.user,
+      jwt: payload?.jwt,
+      isAuthenticated: true,
+    }));
+  },
+
+  refreshUserInfo: (payload) => {
+    set((state) => ({
+      userDetails: payload,
+    }));
+  },
+
+  reset: () => {
+    localStorage.clear();
+    set((state) => ({ userDetails: null, jwt: null, isAuthenticated: false }));
+  },
+});
+
+authStore = devtools(authStore);
+
+authStore = persist(authStore, {
+  name: authStoreName,
+  version: storeVersion,
+});
+
+const useUserCredentialsStore = create(authStore);
+
+export default useUserCredentialsStore;

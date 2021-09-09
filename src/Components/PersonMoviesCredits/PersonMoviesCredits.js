@@ -1,6 +1,8 @@
 import React from "react";
-import MovieCard from "../MovieCard";
+import MovieCard from "../MovieCardLegacy";
 import "../../Styles/MovieActorList.css";
+import Overview from "../Overview/Overview";
+import AddToWatchList from "../AddToWatchList/AddToWatchList";
 
 function PersonMoviesCredits({ movies }) {
   return (
@@ -18,9 +20,8 @@ function PersonMoviesCredits({ movies }) {
             <MovieCard
               movie={movie}
               key={index}
-              canDelete={false}
-              onWatchlist={false}
-              forceUpdate={true}
+              RightButton={AddToWatchList}
+              LeftButton={Overview}
             />
           ))
         : null}

@@ -1,18 +1,20 @@
 import React from "react";
 import "../Styles/Login.css";
-import Search from "../Components/Search";
-import { socketURL } from "../FeathersClient";
-import { authStore } from "../store/auth.store";
+import Search from "../../Components/Search";
+import { socketURL } from "../../FeathersClient";
+import useUserCredentialsStore from "../../store/auth.store";
 import { Redirect } from "react-router";
 function Login() {
-  const isAuthenticated = authStore((state) => state?.isAuthenticated);
+  const isAuthenticated = useUserCredentialsStore(
+    (state) => state?.isAuthenticated
+  );
   if (isAuthenticated === true) {
     return <Redirect to="/watchlist" />;
   }
 
   return (
     <>
-      <div className="container">
+      <div className="container uk-animation-fade">
         <div className="form mx-auto my-auto">
           <form>
             <div className="form-title" id="form-title">

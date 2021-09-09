@@ -6,4 +6,4 @@ export const discoverStoreName = "DISCOVER_STORE";
 export const topRatedMoviesStoreName = "TOP_RATED_MOVIES_STORE";
 export const authStoreName = "AUTH_STORE";
 export const userSettingsStoreName = "USER_SETTINGS";
-export const storeVersion = 1;
+export const storeVersion = 1.2;

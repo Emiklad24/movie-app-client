@@ -1,11 +1,15 @@
 import axios from "axios";
+import { socketURL } from "../FeathersClient";
+import useUserCredentialsStore from "../store/auth.store";
 import { apiURL } from "./misc";
+
+let jwt = useUserCredentialsStore.getState()?.jwt;
 
 const instanceSettings = {
   baseURL: apiURL,
   timeout: 300000,
+  headers: jwt ? { Authorization: `Bearer ${jwt}` } : undefined,
 };
-let jwt = null;
 
 function formatResponseError({ response, ...rest }) {
   let formatedError = {
@@ -20,9 +24,14 @@ function formatResponseError({ response, ...rest }) {
 
 let axiosInstance = axios.create({
   ...instanceSettings,
-  headers: { Authorization: jwt ? `Bearer ${jwt}` : undefined },
+});
+
+let axiosInstanceAlternate = axios.create({
+  ...instanceSettings,
+  baseURL: socketURL,
 });
 
 axiosInstance.interceptors.response.use(null, formatResponseError);
+axiosInstanceAlternate.interceptors.response.use(null, formatResponseError);
 
-export { axiosInstance };
+export { axiosInstance, axiosInstanceAlternate };

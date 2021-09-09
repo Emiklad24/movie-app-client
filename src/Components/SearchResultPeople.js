@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import "../Styles/MoviePageCard.css";
 import noImage from "../Assets/Images/noimage.png";
-import MovieCard from "./MovieCard";
+import MovieCard from "./MovieCardLegacy";
 import { Link } from "react-router-dom";
+import Overview from "./Overview/Overview";
+import AddToWatchList from "./AddToWatchList/AddToWatchList";
 
 class SearchResultPeople extends Component {
   render() {
@@ -99,9 +101,8 @@ class SearchResultPeople extends Component {
                         <MovieCard
                           movie={movie}
                           key={index}
-                          canDelete={false}
-                          onWatchlist={false}
-                          forceUpdate={true}
+                          RightButton={AddToWatchList}
+                          LeftButton={Overview}
                         />
                       ))}
                     </div>

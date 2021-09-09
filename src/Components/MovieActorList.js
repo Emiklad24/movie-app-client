@@ -24,8 +24,8 @@ class MovieActorList extends Component {
       <div className="container">
         <div className="movie-cast uk-animation-fade delay: 200">
           <div className="d-flex justify-content-between align-align-items-center">
-            <h3 className="cast-title mb-4">Casts</h3>
-            {actors.length > 12 ? (
+            <h3 className="cast-title mb-4">Cast</h3>
+            {actors?.length > 12 ? (
               <div className="custom-control custom-switch pr-5 info">
                 <input
                   type="checkbox"

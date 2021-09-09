@@ -1,21 +1,28 @@
 import React from "react";
-import MovieCard from "./MovieCard";
 import FetchMore from "./FetchMore";
 import { PopularMoviesStore } from "../store/popularMovies.store";
 import { useQuery } from "react-query";
 import { fetchPopularMovies } from "../services/fetchPopularMovies.service";
 import { fetchPopularMoviesKey } from "../util/appCacheKeys";
-// import { queryClient } from "../util/misc";
+import MovieCard from "./MovieCard/MovieCard";
+import Overview from "./Overview/Overview";
+import AddToWatchList from "./AddToWatchList/AddToWatchList";
+
 function PopularMovies() {
   const [runQuery, setRunQuery] = React.useState(false);
+
   const popularMovies = PopularMoviesStore((state) => state?.popularMovies);
+
   const updateCurrentPage = PopularMoviesStore(
     (state) => state?.updateCurrentPage
   );
+
   const updatePopularMovies = PopularMoviesStore(
     (state) => state?.updatePopularMovies
   );
+
   const currentPage = PopularMoviesStore((state) => state?.currentPage);
+
   const { isLoading } = useQuery(
     [fetchPopularMoviesKey, currentPage],
     fetchPopularMovies,
@@ -28,12 +35,6 @@ function PopularMovies() {
       enabled: runQuery,
     }
   );
-  // const prefetchMore = () => {
-  //   queryClient.prefetchQuery(
-  //     [fetchPopularMoviesKey, currentPage],
-  //     fetchPopularMovies
-  //   );
-  // };
 
   return (
     <>
@@ -45,9 +46,8 @@ function PopularMovies() {
               <MovieCard
                 movie={movie}
                 key={movie?.id}
-                canDelete={false}
-                onWatchlist={false}
-                forceUpdate={true}
+                RightButton={AddToWatchList}
+                LeftButton={Overview}
               />
             );
           })

@@ -1,10 +1,14 @@
 import { useQuery } from "react-query";
+import shallow from "zustand/shallow";
 import { loadUser } from "../../actions/authAction";
+import useGetUsersWatchlists from "../../hooks/useGetUsersWatchlists";
 import { useLoadUserInfo } from "../../hooks/useLoadUserInfo";
+import { useRefreshUserDetails } from "../../hooks/useRefreshUserDetails";
 import { fetchNowPlaying } from "../../services/fetchNowPlayingMovies.service";
 import { fetchPopularMovies } from "../../services/fetchPopularMovies.service";
 import { fetchTopRatedMovies } from "../../services/fetchTopRatedMovies.service";
 import { fetchUpcomingMovies } from "../../services/fetchUpcomingMovies.service";
+import useUserCredentialsStore from "../../store/auth.store";
 import { NowPlayingMoviesStore } from "../../store/nowPlayingMovies.store";
 import { PopularMoviesStore } from "../../store/popularMovies.store";
 import { TopRatedMoviesStore } from "../../store/topRatedMovies.store";
@@ -15,7 +19,15 @@ import {
   fetchUpcomingMoviesKey,
   fetchTopRatedMoviesKey,
 } from "../../util/appCacheKeys";
+
 export default function GlobalFetches() {
+  const { userDetails } = useUserCredentialsStore(
+    (state) => ({
+      isAuthenticated: state.isAuthenticated,
+      userDetails: state.userDetails,
+    }),
+    shallow
+  );
   const popularMovies = PopularMoviesStore((state) => state?.popularMovies);
   const currentPage = PopularMoviesStore((state) => state?.currentPage);
   const updatePopularMovies = PopularMoviesStore(
@@ -63,6 +75,13 @@ export default function GlobalFetches() {
   );
 
   loadUser();
+
+  useGetUsersWatchlists({
+    archived: false,
+    users_permissions_user: userDetails?.id,
+  });
+
+  useRefreshUserDetails();
 
   useQuery(fetchPopularMoviesKey, fetchPopularMovies, {
     enabled: currentPage === 1 && popularMovies?.length === 0 ? true : false,

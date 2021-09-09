@@ -3,7 +3,7 @@ import "../Styles/Search.css";
 import ReactDOM from "react-dom";
 import axios from "axios";
 import Loading from "./Loading";
-import MovieCard from "./MovieCardLegacy";
+import MovieCard from "../Components/MovieCard/MovieCard";
 import ErrorMovieSearch from "./ErrorMovieSearch";
 import SearchOptionTitle from "./SearchOptionTitle";
 import SearchResultsPeople from "./SearchResultPeople";

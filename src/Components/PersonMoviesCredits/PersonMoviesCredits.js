@@ -1,5 +1,5 @@
 import React from "react";
-import MovieCard from "../MovieCardLegacy";
+import MovieCard from "../MovieCard/MovieCard";
 import "../../Styles/MovieActorList.css";
 import Overview from "../Overview/Overview";
 import AddToWatchList from "../AddToWatchList/AddToWatchList";

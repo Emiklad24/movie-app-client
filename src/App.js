@@ -47,7 +47,7 @@ function App() {
         />
         <Route exact path="/discover" component={Discover} />
         <PrivateRoute exact path="/watchlist" component={WatchList} />
-        <PrivateRoute exact path="/rated" component={RatedMovies} />
+        {/* <PrivateRoute exact path="/rated" component={RatedMovies} /> */}
         <Route exact path="/:personName/:personNameId" component={PersonPage} />
         <Route exact path="/:moviename" component={MoviePage} />
         <Route component={Error404} />

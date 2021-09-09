@@ -39,12 +39,6 @@ const Header = () => {
                   </span>
                   <span className="menu-text">Watchlist</span>
                 </Link>
-                <Link className="item  uk-animation-fade" to="/rated">
-                  <span className="nav-icon">
-                    <i className="fa fa-star"></i>
-                  </span>
-                  <span className="menu-text">Rated Movies</span>
-                </Link>
 
                 <Link
                   className="item  uk-animation-fade"

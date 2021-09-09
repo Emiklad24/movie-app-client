@@ -25,13 +25,6 @@ export const Signup = LoadableVisibility({
   timeout: timeout,
 });
 
-export const RatedMovies = LoadableVisibility({
-  loader: () => import("../Pages/RatedMovies/RatedMovies"),
-  loading: LoadingSuspense,
-  delay: delay,
-  timeout: timeout,
-});
-
 export const MoviePage = LoadableVisibility({
   loader: () => import("../Pages/MoviePage/MoviePage"),
   loading: LoadingSuspense,

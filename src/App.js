@@ -13,7 +13,6 @@ import GlobalFetches from "./Components/GlobalFetches/GlobalFetches";
 import {
   Movies,
   WatchList,
-  RatedMovies,
   MoviePage,
   PersonPage,
   Discover,

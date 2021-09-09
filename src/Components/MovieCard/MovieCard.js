@@ -5,6 +5,7 @@ import {
   prefetchAllRelatedQueries,
 } from "../../hooks/useAddMovieToWatchList";
 import noImage from "../../Assets/Images/noimage.png";
+import "../../Styles/MovieCard.css";
 
 export default function Moviecard({ movie, LeftButton, RightButton }) {
   const currentMovieName =

@@ -8,9 +8,6 @@
 # testing
 /coverage
 
-/src/Components/MovieCardLegacy.js
-/src/Components/MovieCardRatedMovies.js
-/src/Components/Pages/RatedMovies/RatedMovies.js
 
 # production
 /build

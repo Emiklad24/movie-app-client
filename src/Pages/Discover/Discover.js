@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import AddToWatchList from "../../Components/AddToWatchList/AddToWatchList";
 import DiscoverParamSettingsModal from "../../Components/DiscoverParamSettingsModal/DiscoverParamSettingsModal";
-import MovieCard from "../../Components/MovieCardLegacy";
+import MovieCard from "../../Components/MovieCard/MovieCard";
 import Overview from "../../Components/Overview/Overview";
 import { fetchDiscoverMovies } from "../../services/fetchDiscover.service";
 import { discoverMoviesKey } from "../../util/appCacheKeys";
